@@ -68,6 +68,7 @@ export default function Dashboard() {
           </Box>
           <Box p="8" bg="gray.800" borderRadius={8}>
             <Text>Taxa de Abertura</Text>
+            <Chart options={options} series={series} type="area" height={160} />
           </Box>
         </SimpleGrid>
       </Flex>
