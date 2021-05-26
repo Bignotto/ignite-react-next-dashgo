@@ -1,11 +1,19 @@
 import { Flex, Stack, Button } from "@chakra-ui/react";
-import { useForm } from "react-hook-form";
+import { SubmitHandler, useForm } from "react-hook-form";
 import { Input } from "../components/Form/Input";
 
-export default function Home() {
-  const { register, handleSubmit } = useForm();
+type SignInFormData = {
+  email: string;
+  password: string;
+};
 
-  function handleSignIn() {}
+export default function Home() {
+  const { register, handleSubmit, formState } = useForm();
+  const { errors } = formState;
+
+  const handleSignIn: SubmitHandler<SignInFormData> = (values) => {
+    console.log(values);
+  };
 
   return (
     <Flex w="100vw" h="100vh" align="center" justify="center">
@@ -24,13 +32,19 @@ export default function Home() {
             name="email"
             type="email"
             label="E-Mail"
-            {...register("email")}
+            error={errors.email}
+            {...register("email", {
+              required: "Obrigatório informar um email!",
+            })}
           />
           <Input
             name="password"
             type="password"
             label="Senha"
-            {...register("password")}
+            error={errors.password}
+            {...register("password", {
+              required: "Obrigatório informar uma senha!",
+            })}
           />
         </Stack>
         <Button type="submit" mt="6" colorScheme="pink">
