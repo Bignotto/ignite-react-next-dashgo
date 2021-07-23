@@ -61,13 +61,13 @@ export default function Dashboard() {
         <Sidebar />
 
         <SimpleGrid flex="1" gap="4" minChildWidth="320px" align="flex-start">
-          <Box px={["2", "4"]} bg="gray.800" borderRadius={8}>
+          <Box p="4" bg="gray.800" borderRadius={8} maxH={240}>
             <Text fontSize="lg" mb="4">
               Inscritos da Semana
             </Text>
             <Chart options={options} series={series} type="area" height={160} />
           </Box>
-          <Box px={["2", "4"]} bg="gray.800" borderRadius={8}>
+          <Box p="4" bg="gray.800" borderRadius={8} maxH={240}>
             <Text fontSize="lg" mb="4">
               Taxa de Abertura
             </Text>
